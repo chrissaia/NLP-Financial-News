@@ -1,0 +1,21 @@
+import unittest
+import tensorflow as tf
+from src.model import create_model
+
+class TestModel(unittest.TestCase):
+    
+    def test_model_creation(self):
+        vocab_size = 1000
+        model = create_model(vocab_size)
+        
+        # Check if the model has the correct number of layers
+        self.assertEqual(len(model.layers), 3, "Model should have 3 layers")
+        
+        # Check the model's input shape
+        self.assertEqual(model.input_shape[1:], (100,), "Input shape should be (None, 100)")
+        
+        # Check the output shape (should have 3 outputs for the 3 classes: positive, negative, neutral)
+        self.assertEqual(model.output_shape[1], 3, "Output shape should have 3 classes")
+
+if __name__ == '__main__':
+    unittest.main()
