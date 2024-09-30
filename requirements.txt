@@ -1,0 +1,8 @@
+### 2. `requirements.txt`
+```bash
+tensorflow==2.8.0
+pandas
+numpy
+scikit-learn
+matplotlib
+jupyter
